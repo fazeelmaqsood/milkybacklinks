@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactCompiler: true,
+  // Smaller production bundle for VPS / Hostinger Node.js hosting
+  output: "standalone",
 };
 
 export default nextConfig;
