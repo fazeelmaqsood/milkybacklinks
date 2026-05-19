@@ -4,6 +4,7 @@ import { db } from "@/lib/db";
 import { EMAIL_CONFIG, isEmailConfigured, sendEmailSafe } from "@/lib/resend";
 import { getStripe } from "@/lib/stripe-server";
 import { processCheckoutSession } from "@/lib/process-checkout-session";
+import { emailLogoHtml } from "@/lib/brand";
 
 export async function POST(req: NextRequest) {
   const body = await req.text();
@@ -98,7 +99,7 @@ async function sendPaymentConfirmationToClient({
     subject: `Your ${productName} is confirmed`,
     html: `
         <div style="font-family:system-ui,sans-serif;max-width:600px;margin:0 auto;background:#000000;color:#ffffff;padding:40px;border-radius:12px;border:1px solid #2a2a2a;">
-          <div style="margin-bottom:32px;"><span style="font-size:20px;font-weight:700;color:#ffffff;">Milky<span style="color:#f97316;">Backlinks</span></span></div>
+          <div style="margin-bottom:32px;">${emailLogoHtml({ height: 44, darkBg: true })}</div>
           <h1 style="font-size:24px;font-weight:700;margin-bottom:16px;">Payment confirmed, ${name}.</h1>
           <p style="color:#a3a3a3;line-height:1.7;margin-bottom:24px;">Your ${productName} has been confirmed. Our team will begin within 1–2 business days.</p>
           <div style="background:#111111;border:1px solid #2a2a2a;border-radius:8px;padding:20px;margin-bottom:24px;">

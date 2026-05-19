@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { UserMenu } from "@/components/layout/user-menu";
+import { Logo } from "@/components/brand/logo";
 
 const navLinks = [
   { href: "/services", label: "Services" },
@@ -36,14 +37,7 @@ export function Nav() {
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f97316] to-[#fb923c] flex items-center justify-center shadow-lg shadow-[#f97316]/30">
-              <Zap className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-bold text-[#1a1a1a] text-lg tracking-tight group-hover:text-[#1a1a1a] transition-colors">
-              Milky<span className="text-[#f97316]">Backlinks</span>
-            </span>
-          </Link>
+          <Logo className="transition-opacity hover:opacity-90" />
 
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (

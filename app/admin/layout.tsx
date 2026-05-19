@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { LayoutDashboard, Users, Activity, Link2, FileText, Zap } from "lucide-react";
+import { LayoutDashboard, Users, Activity, Link2, FileText } from "lucide-react";
+import { Logo } from "@/components/brand/logo";
 import { requireAdmin } from "@/lib/auth-helpers";
 import { SignOutButton } from "@/components/auth/sign-out-button";
 
@@ -23,14 +24,7 @@ export default async function AdminLayout({
       {/* Sidebar */}
       <aside className="hidden md:flex flex-col w-64 border-r border-[#e0ddd8] bg-[#f2f0eb] fixed h-full">
         <div className="p-6 border-b border-[#e0ddd8]">
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f97316] to-[#fb923c] flex items-center justify-center">
-              <Zap className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-bold text-[#1a1a1a] text-sm">
-              Milky<span className="text-[#f97316]">Backlinks</span>
-            </span>
-          </Link>
+          <Logo size="md" textClassName="text-sm" />
           <div className="mt-3">
             <span className="inline-flex items-center rounded-full bg-[#ef4444]/20 border border-[#ef4444]/30 px-2.5 py-0.5 text-[10px] font-semibold text-[#f87171]">
               Admin

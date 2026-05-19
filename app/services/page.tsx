@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
+import { Logo } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -476,9 +477,7 @@ export default function ServicesPage() {
 
               <div className="rounded-2xl border border-[#f97316]/40 bg-[#faf8f5] p-7 shadow-lg shadow-[#f97316]/5">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-9 h-9 rounded-lg bg-[#f97316]/10 border border-[#f97316]/20 flex items-center justify-center">
-                    <Sparkles className="w-4 h-4 text-[#f97316]" />
-                  </div>
+                  <Logo href={null} size={36} showText={false} className="gap-0" />
                   <h3 className="font-bold text-[#1a1a1a]">MilkyBacklinks</h3>
                 </div>
                 <ul className="space-y-3">

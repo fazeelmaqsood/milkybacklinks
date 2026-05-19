@@ -20,14 +20,21 @@ rsync -avz --delete \
   --exclude .env \
   "$ROOT/" "$SSH_USER@$VPS_IP:$APP_DIR/"
 
+if [ "${SKIP_BUILD:-0}" != "1" ]; then
+  echo ""
+  echo "==> Building and restarting on VPS..."
+  ssh "$SSH_USER@$VPS_IP" "cd $APP_DIR && bash scripts/vps-setup.sh"
+fi
+
 echo ""
-echo "Uploaded. Now SSH in and run setup:"
+echo "Deployed. App should respond on port 3001 (nginx proxies :80)."
+echo ""
+echo "First-time only:"
 echo "  ssh $SSH_USER@$VPS_IP"
 echo "  cd $APP_DIR && cp .env.production.example .env && nano .env"
-echo "  bash scripts/vps-setup.sh"
-echo ""
-echo "Nginx + SSL:"
 echo "  sudo cp deploy/nginx-milkybacklinks.conf /etc/nginx/sites-available/milkybacklinks"
 echo "  sudo ln -sf /etc/nginx/sites-available/milkybacklinks /etc/nginx/sites-enabled/"
 echo "  sudo nginx -t && sudo systemctl reload nginx"
+echo ""
+echo "After DNS A record points to $VPS_IP:"
 echo "  sudo certbot --nginx -d milkybacklinks.com -d www.milkybacklinks.com"

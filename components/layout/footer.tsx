@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Zap } from "lucide-react";
+import { Logo } from "@/components/brand/logo";
 
 const footerLinks = {
   Product: [
@@ -31,14 +31,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f97316] to-[#fb923c] flex items-center justify-center">
-                <Zap className="w-4 h-4 text-white" />
-              </div>
-              <span className="font-bold text-[#1a1a1a] text-lg tracking-tight">
-                Milky<span className="text-[#f97316]">Backlinks</span>
-              </span>
-            </Link>
+            <Logo className="mb-4" />
             <p className="text-sm text-[#9a9793] leading-relaxed max-w-[200px]">
               Structured digital PR campaigns with transparent tracking and reporting.
             </p>

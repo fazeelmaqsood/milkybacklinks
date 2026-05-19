@@ -27,6 +27,11 @@ export const metadata: Metadata = {
     "earned media",
     "SEO",
   ],
+  icons: {
+    icon: [{ url: "/favicon.ico", sizes: "any" }],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -35,12 +40,21 @@ export const metadata: Metadata = {
     title: "Digital PR Starter Campaign | MilkyBacklinks",
     description:
       "Start a $500 digital PR campaign with outreach tracking, backlink reporting, and a transparent client dashboard.",
+    images: [
+      {
+        url: "/logo.png",
+        width: 400,
+        height: 400,
+        alt: "MilkyBacklinks",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Digital PR Starter Campaign | MilkyBacklinks",
     description:
       "Start a $500 digital PR campaign with outreach tracking, backlink reporting, and a transparent client dashboard.",
+    images: ["/logo.png"],
   },
   robots: { index: true, follow: true },
 };

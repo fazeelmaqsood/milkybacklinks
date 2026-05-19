@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { ArrowRight, Loader2, AlertCircle, CheckCircle2, Zap } from "lucide-react";
+import { ArrowRight, Loader2, AlertCircle, CheckCircle2 } from "lucide-react";
+import { Logo } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -127,14 +128,7 @@ export function GetStartedForm() {
     <div className="min-h-screen bg-[#faf8f5] grid-bg">
       <header className="border-b border-[#e0ddd8] bg-[#faf8f5]/95 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center h-16">
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f97316] to-[#fb923c] flex items-center justify-center">
-              <Zap className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-bold text-[#1a1a1a] text-lg">
-              Milky<span className="text-[#f97316]">Backlinks</span>
-            </span>
-          </Link>
+          <Logo />
         </div>
       </header>
 

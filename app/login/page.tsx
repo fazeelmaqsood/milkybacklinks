@@ -3,7 +3,8 @@
 import { useState, Suspense, useEffect } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Loader2, AlertCircle, Zap } from "lucide-react";
+import { Loader2, AlertCircle } from "lucide-react";
+import { Logo } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -91,14 +92,9 @@ function LoginForm() {
 
   return (
     <div className="w-full max-w-sm">
-      <Link href="/" className="flex items-center gap-2.5 justify-center mb-10">
-        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#f97316] to-[#fb923c] flex items-center justify-center shadow-lg shadow-[#f97316]/30">
-          <Zap className="w-5 h-5 text-white" />
-        </div>
-        <span className="font-bold text-[#1a1a1a] text-xl">
-          Milky<span className="text-[#f97316]">Backlinks</span>
-        </span>
-      </Link>
+      <div className="flex justify-center mb-10">
+        <Logo href="/" size="xl" />
+      </div>
 
       <div className="rounded-2xl border border-[#e0ddd8] bg-[#f2f0eb] p-8">
         <h1 className="text-xl font-bold text-[#1a1a1a] mb-1">

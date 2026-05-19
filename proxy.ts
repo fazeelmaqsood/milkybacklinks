@@ -21,7 +21,11 @@ const PUBLIC_PATHS = [
   "/sitemap",
 ];
 
+const PUBLIC_FILES =
+  /^\/(logo\.png|apple-icon\.png|favicon\.ico|.*\.(png|jpe?g|gif|webp|svg|ico))$/i;
+
 function isPublicPath(pathname: string): boolean {
+  if (PUBLIC_FILES.test(pathname)) return true;
   return PUBLIC_PATHS.some(
     (p) => pathname === p || pathname.startsWith(p + "/") || pathname.startsWith(p + "?")
   );
@@ -50,6 +54,6 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|public/).*)",
+    "/((?!_next/static|_next/image|favicon.ico|logo.png|apple-icon.png).*)",
   ],
 };

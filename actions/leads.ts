@@ -6,6 +6,7 @@ import { EMAIL_CONFIG, isEmailConfigured, sendEmailSafe } from "@/lib/resend";
 import { z } from "zod";
 import { nanoid } from "@/lib/nanoid";
 import { getPlan } from "@/lib/plans";
+import { emailLogoHtml } from "@/lib/brand";
 
 const leadSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -97,9 +98,7 @@ async function sendClientConfirmationEmail({
     subject,
     html: `
         <div style="font-family:system-ui,sans-serif;max-width:600px;margin:0 auto;background:#faf8f5;color:#1a1a1a;padding:40px;border-radius:12px;border:1px solid #e0ddd8;">
-          <div style="margin-bottom:32px;">
-            <span style="font-size:20px;font-weight:700;color:#1a1a1a;">Milky<span style="color:#f97316;">Backlinks</span></span>
-          </div>
+          <div style="margin-bottom:32px;">${emailLogoHtml({ height: 44 })}</div>
           <h1 style="font-size:24px;font-weight:700;margin-bottom:16px;color:#1a1a1a;">We received your details, ${name}.</h1>
           <p style="color:#6b6866;line-height:1.7;margin-bottom:24px;">Thanks for reaching out. We've received your ${plan.name} request for <strong style="color:#1a1a1a;">${website_url}</strong>.</p>
           <div style="background:#f2f0eb;border:1px solid #e0ddd8;border-radius:8px;padding:20px;margin-bottom:24px;">
